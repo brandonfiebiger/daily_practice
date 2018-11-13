@@ -40,19 +40,19 @@ describe('Random key cipher', () => {
 });
 
 describe('Incorrect key cipher', () => {
-  xtest('throws an error with an all caps key', () => {
+  test('throws an error with an all caps key', () => {
     expect(() => {
       new Cipher('ABCDEF');
     }).toThrow(new Error('Bad key'));
   });
 
-  xtest('throws an error with a mixed-case key', () => {
+  test('throws an error with a mixed-case key', () => {
     expect(() => {
       new Cipher('ABcdEF');
     }).toThrow(new Error('Bad key'));
   });
 
-  xtest('throws an error with a numeric key', () => {
+  test('throws an error with a numeric key', () => {
     expect(() => {
       new Cipher('12345');
     }).toThrow(new Error('Bad key'));
@@ -64,19 +64,19 @@ describe('Incorrect key cipher', () => {
     }).toThrow(new Error('Bad key'));
   });
 
-  xtest('throws an error with a leading space', () => {
+  test('throws an error with a leading space', () => {
     expect(() => {
       new Cipher(' leadingspace');
     }).toThrow(new Error('Bad key'));
   });
 
-  xtest('throws an error with a punctuation mark', () => {
+  test('throws an error with a punctuation mark', () => {
     expect(() => {
       new Cipher('hyphened-word');
     }).toThrow(new Error('Bad key'));
   });
 
-  xtest('throws an error with a single capital letter', () => {
+  test('throws an error with a single capital letter', () => {
     expect(() => {
       new Cipher('leonardoDavinci');
     }).toThrow(new Error('Bad key'));
@@ -87,28 +87,28 @@ describe('Substitution cipher', () => {
   const key = 'abcdefghij';
   const cipher = new Cipher(key);
 
-  xtest('keeps the submitted key', () => {
+  test('keeps the submitted key', () => {
     expect(cipher.key).toEqual(key);
   });
 
-  xtest('can encode', () => {
+  test('can encode', () => {
     expect(cipher.encode('aaaaaaaaaa')).toEqual('abcdefghij');
   });
 
-  xtest('can decode', () => {
+  test('can decode', () => {
     expect(cipher.decode('abcdefghij')).toEqual('aaaaaaaaaa');
   });
 
-  xtest('is reversible', () => {
+  test('is reversible', () => {
     expect(cipher.decode(cipher.encode('abcdefghij'))).toEqual('abcdefghij');
   });
 
-  xtest(': double shift encode', () => {
+  test(': double shift encode', () => {
     expect(new Cipher('iamapandabear').encode('iamapandabear'))
       .toEqual('qayaeaagaciai');
   });
 
-  xtest('can wrap on encode', () => {
+  test('can wrap on encode', () => {
     expect(cipher.encode('zzzzzzzzzz')).toEqual('zabcdefghi');
   });
 

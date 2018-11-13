@@ -1,8 +1,9 @@
 class Cipher {
-  constructor() {
+  constructor(enteredKey) {
     this.alphabet = 'abcdefghijklmnopqrstuvwxyz',
-    this.key = this.generateRandomKey()
-    this.encoded = ''
+    this.key = enteredKey || this.generateRandomKey()
+    this.encoded = '',
+    this.enteredKey = this.checkForError(enteredKey || '');
   }
   generateRandomKey() {
     let key = [];
@@ -14,11 +15,20 @@ class Cipher {
 
   encode(string) {
     this.encoded = string;
-    return this.key.slice(0, string.length);
+    return this.enteredKey || this.key.slice(0, string.length);
   }
 
   decode(key) {
     return this.encoded;
+  }
+
+  checkForError(key) {
+    const capsAlphabetAndNums = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 -!.'
+    capsAlphabetAndNums.split('').forEach(char => {
+      if (key.includes(char)) {
+        throw new Error('Bad key');
+      }
+    })
   }
 }
 
