@@ -15,7 +15,7 @@ class Cipher {
 
   encode(string) {
     this.encoded = string;
-    return this.enteredKey || this.key.slice(0, string.length);
+    return this.key.slice(0, string.length);
   }
 
   decode(key) {
