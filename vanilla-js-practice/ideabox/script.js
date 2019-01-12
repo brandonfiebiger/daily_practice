@@ -8,6 +8,8 @@ ideaForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const idea = new Idea(titleInput.value, contentInput.value);
   const ideaElement = document.createElement('li');
+  ideaElement.innerHTML = idea.markup;
+  ideaList.prepend(ideaElement);
   Idea.addIdea(idea);
   ideaForm.reset();
 })
