@@ -5,7 +5,7 @@ const submitButton = document.querySelector('.submit-button');
 const ideaList = document.querySelector('.idea-list');
 
 window.onload = () => {
-  const ideasArray = JSON.parse(localStorage.getItem('ideas'));
+  const ideasArray = JSON.parse(localStorage.getItem('ideas')) || [];
   ideasArray.forEach(idea => addToDom(idea));
 };
 
@@ -16,6 +16,13 @@ ideaForm.addEventListener('submit', (e) => {
   Idea.addIdea(idea);
   ideaForm.reset();
 });
+
+ideaList.addEventListener('click', (e) => {
+  if (e.target.className === 'delete-button') {
+    e.target.parentElement.remove();
+    Idea.deleteIdea(e.target.dataset.id);
+  }
+})
 
 const addToDom = (idea) => {
   const ideaElement = document.createElement('li');
