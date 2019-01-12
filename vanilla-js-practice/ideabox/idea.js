@@ -15,7 +15,7 @@ class Idea {
 
   static addIdea(idea) {
     let ideasArray = JSON.parse(localStorage.getItem('ideas')) || [];
-    ideasArray = [idea, ...ideasArray];
+    ideasArray = [...ideasArray, idea];
     localStorage.setItem('ideas', JSON.stringify(ideasArray));
   }
 }
