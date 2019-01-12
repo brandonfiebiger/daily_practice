@@ -20,6 +20,8 @@ class Idea {
   }
 
   static deleteIdea(id) {
-    console.log('hello');
+    let ideasArray = JSON.parse(localStorage.getItem('ideas'));
+    ideasArray = ideasArray.filter(idea => idea.id != id);
+    localStorage.setItem('ideas', JSON.stringify(ideasArray));
   }
 }
