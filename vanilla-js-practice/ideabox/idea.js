@@ -5,10 +5,10 @@ class Idea {
     this.id = Date.now();
     this.quality = 'swill';
     this.markup = `
-      <h2>${this.title}</h2>
-      <p>${this.content}</p>
-      <p>${this.quality}</p>
-      <button data-id=${this.id}>X</button>
+      <h2 class="idea-title">${this.title}</h2>
+      <p class="idea-content">${this.content}</p>
+      <p class="idea quality">${this.quality}</p>
+      <button class="delete-button" data-id=${this.id}>X</button>
   `;
   }
 
