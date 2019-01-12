@@ -23,7 +23,6 @@ ideaList.addEventListener('click', (e) => {
     Idea.deleteIdea(e.target.dataset.id);
   } else if (e.target.className === 'upvote' || e.target.className === 'downvote') {
     const newQuality = Idea.updateQuality(e);
-    console.log(newQuality);
     e.target.parentElement.previousSibling.previousSibling.innerText = newQuality;
   }
 })
@@ -35,10 +34,10 @@ const addToDom = (idea) => {
     <h2 class="idea-title">${idea.title}</h2>
     <p class="idea-content">${idea.content}</p>
     <p class="idea-quality">${idea.quality}</p>
-    <div class="vote-buttons" data-id=${idea.id}>
+    <span class="vote-buttons" data-id=${idea.id}>
       <button class="upvote">&uarr;</button>
       <button class="downvote">&darr;</button>
-    </div>
+    </span>
     <button class="delete-button" data-id=${idea.id}>X</button>
 `;
 
