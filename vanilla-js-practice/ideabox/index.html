@@ -14,11 +14,15 @@
       <h1>IdeaBox<span class="triples">Triples</span></h1>
     </header>
     <main>
-      <form class="idea-form">
-        <input type="text" class="title-input" required>
-        <input type="text" class="content-input" required>
-        <button class="submit-button">Submit</button>
-      </form>
+      <div class="form-container">
+        <form class="idea-form">
+          <label for="title">Title</label>
+          <input type="text" name="title" class="title-input idea-input" required>
+          <label for="content">Content</label>
+          <input type="text" name="content" class="content-input idea-input" required>
+          <button class="submit-button disabled" disabled>Submit</button>
+        </form>
+      </div>
       <ul class="idea-list"></ul>
     </main>
     <script src="idea.js" async defer></script>
