@@ -46,7 +46,7 @@ header {
   width: 100%;
   text-align: center;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding-left: 1rem;
   font-size: 1.2rem;
@@ -122,5 +122,9 @@ input {
 
 main {
   height: 90vh;
+}
+
+.search-input {
+  width: 20%;
 }
 
