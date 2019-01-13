@@ -3,11 +3,23 @@ const titleInput = document.querySelector('.title-input');
 const contentInput = document.querySelector('.content-input');
 const submitButton = document.querySelector('.submit-button');
 const ideaList = document.querySelector('.idea-list');
+const searchInput = document.querySelector('.search-input');
+const ideasArray = JSON.parse(localStorage.getItem('ideas')) || [];
 
 window.onload = () => {
-  const ideasArray = JSON.parse(localStorage.getItem('ideas')) || [];
   ideasArray.forEach(idea => addToDom(idea));
 };
+
+searchInput.addEventListener('keyup', () => {
+  if(!searchInput.value) {
+    ideaList.innerHTML = "";
+    ideasArray.forEach(idea => addToDom(idea));
+    return;
+  }
+  let filteredIdeas = ideasArray.filter(idea => idea.content.includes(searchInput.value) || idea.title.includes(searchInput.value));
+  ideaList.innerHTML = "";
+  filteredIdeas.forEach(idea => addToDom(idea));
+})
 
 ideaForm.addEventListener('submit', (e) => {
   e.preventDefault();
