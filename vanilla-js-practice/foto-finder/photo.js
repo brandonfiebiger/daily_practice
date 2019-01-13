@@ -7,7 +7,7 @@ class Photo {
     this.favorite = false;
   }
 
-  static saveToStorage() {
-    
+  static saveToStorage(photo) {
+    console.log(photo);
   }
 }
