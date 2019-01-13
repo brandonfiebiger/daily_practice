@@ -15,7 +15,15 @@ ideaForm.addEventListener('submit', (e) => {
   addToDom(idea)
   Idea.addIdea(idea);
   ideaForm.reset();
+  submitButton.classList.add('disabled');
+  submitButton.setAttribute('disabled', true);
 });
+
+ideaForm.addEventListener('keyup', (e) => {
+  if(e.target.classList.contains('idea-input')) {
+    toggleDisabled();
+  }
+})
 
 ideaList.addEventListener('click', (e) => {
   if (e.target.className === 'delete-button') {
@@ -26,6 +34,16 @@ ideaList.addEventListener('click', (e) => {
     e.target.parentElement.previousSibling.previousSibling.innerText = newQuality;
   }
 })
+
+const toggleDisabled = () => {
+    if(titleInput.value && contentInput.value) {
+      submitButton.classList.remove('disabled');
+      submitButton.removeAttribute("disabled");
+    } else {
+      submitButton.classList.add('disabled');
+      submitButton.setAttribute("disabled", true);
+    }
+}
 
 const addToDom = (idea) => {
   const ideaElement = document.createElement('li');
