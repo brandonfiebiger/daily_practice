@@ -5,6 +5,23 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <header class="header">
+      <h1 class="primary-heading">Foto Finder</h1>
+      <input type="text" class="search-input">
+    </header>
+    <main class="main-content">
+      <form class="add-photo-form">
+        <input type="text" class="title-input">
+        <input type="text" class="caption-input">
+        <input type="file" class="select-file">
+        <img src="" class="preview">
+        <div class="fav-and-add">
+          <button class="favorites-button">View Favorites</button>
+          <button class="add-photo-button">Add to Album</button>
+        </div>
+      </form>
+      <ul class="photo-list"></ul>
+    </main>
     <script src="photo.js" async defer></script>    
     <script src="main.js" async defer></script>
   </body>
