@@ -1,6 +1,8 @@
 const selectFile = document.querySelector('.select-file');
 const preview = document.querySelector('.preview');
 const addPhotoForm = document.querySelector('.add-photo-form');
+const titleInput = document.querySelector('.titel-input');
+const captionInput = document.querySelector('.caption-input');
 
 selectFile.addEventListener('change', () => selectAndPreviewFile());
 addPhotoForm.addEventListener('submit', (e) => handleAddPhoto(e));
@@ -19,7 +21,7 @@ const selectAndPreviewFile = () => {
 
 const handleAddPhoto = (e) => {
   e.preventDefault();
-  console.log('hello');
+  
 }
 
 
