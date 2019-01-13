@@ -8,7 +8,7 @@ body {
 }
 
 li {
-  width: 50%;
+  width: 57%;
   padding: 2rem;
   text-align: center;
   border: 1px solid #d2cccd;
@@ -46,7 +46,7 @@ header {
   width: 100%;
   text-align: center;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding-left: 1rem;
   font-size: 1.2rem;
@@ -56,9 +56,8 @@ header {
 .idea-form {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 60%;
   margin: auto;
-  /* margin-top: 1rem; */
   height: 35vh;
   justify-content: space-around;
   align-items: center;
@@ -118,9 +117,14 @@ input {
   background: #f9f9fa;
   margin: 0;
   padding-top: 2rem;
+  padding-left: 0;
 }
 
 main {
   height: 90vh;
+}
+
+.search-input {
+  width: 20%;
 }
 
