@@ -8,6 +8,6 @@ class Photo {
   }
 
   static saveToStorage(photo) {
-    console.log(photo);
+    //Save photo objects to localStorage
   }
 }
