@@ -46,7 +46,7 @@ const prependPhoto = (photo) => {
   photoItem.innerHTML = `
     <li>
       <h2>${photo.title}</h2>
-      <img src=${photo.file} />
+      <img src=${photo.file} class="photo-card-image" />
       <p>${photo.caption}</p>
     </li>
   `;
