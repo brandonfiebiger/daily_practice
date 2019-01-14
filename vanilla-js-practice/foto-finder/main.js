@@ -4,10 +4,12 @@ const addPhotoForm = document.querySelector('.add-photo-form');
 const photoList = document.querySelector('.photo-list');
 const titleInput = document.querySelector('.title-input');
 const captionInput = document.querySelector('.caption-input');
+const addPhotoButton = document.querySelector('.add-photo-button');
 const reader = new FileReader();
 
 selectFile.addEventListener('change', () => selectAndPreviewFile());
 addPhotoForm.addEventListener('submit', (e) => handleAddPhoto(e));
+addPhotoButton.addEventListener('click', (e) => handleAddPhoto(e));
 
 const selectAndPreviewFile = () => {
   const file = selectFile.files[0];
