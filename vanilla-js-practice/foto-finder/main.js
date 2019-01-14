@@ -13,7 +13,6 @@ window.onload = () => {
 }
 selectFile.addEventListener('change', () => selectAndPreviewFile());
 addPhotoForm.addEventListener('submit', (e) => handleAddPhoto(e));
-addPhotoButton.addEventListener('click', (e) => handleAddPhoto(e));
 
 const selectAndPreviewFile = () => {
   const file = selectFile.files[0];
