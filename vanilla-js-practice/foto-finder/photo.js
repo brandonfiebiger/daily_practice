@@ -12,4 +12,10 @@ class Photo {
     photosArray.unshift(photo);
     localStorage.setItem('photos', JSON.stringify(photosArray));
   }
+
+  static deleteFromStorage(id) {
+    let photosArray =  JSON.parse(localStorage.getItem('photos'));
+    photosArray = photosArray.filter(photo => photo.id != id);
+    localStorage.setItem('photos', photosArray);
+  }  
 }
