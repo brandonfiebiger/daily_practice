@@ -8,7 +8,7 @@ class Photo {
   }
 
   static saveToStorage(photo) {
-    const photosArray = JSON.parse(localStorage.getItem('photos')) || [];
+    let photosArray = JSON.parse(localStorage.getItem('photos')) || [];
     photosArray.unshift(photo);
     localStorage.setItem('photos', JSON.stringify(photosArray));
   }
@@ -16,6 +16,6 @@ class Photo {
   static deleteFromStorage(id) {
     let photosArray =  JSON.parse(localStorage.getItem('photos'));
     photosArray = photosArray.filter(photo => photo.id != id);
-    localStorage.setItem('photos', photosArray);
+    localStorage.setItem('photos', JSON.stringify(photosArray));
   }  
 }

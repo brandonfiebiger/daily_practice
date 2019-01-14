@@ -1,3 +1,8 @@
 .photo-card-image {
   height: 200px;
 }
+
+.delete-icon {
+  height: 2rem;
+  cursor: pointer;
+}
