@@ -13,6 +13,12 @@ window.onload = () => {
 }
 selectFile.addEventListener('change', () => selectAndPreviewFile());
 addPhotoForm.addEventListener('submit', (e) => handleAddPhoto(e));
+photoList.addEventListener('click', (e) => {
+  if (e.target.className === 'delete-icon') {
+    Photo.deleteFromStorage(e.target.parentElement.dataset.id);
+    e.target.parentElement.remove();
+  }
+})
 
 const selectAndPreviewFile = () => {
   const file = selectFile.files[0];
@@ -44,14 +50,14 @@ const prependPhoto = (photo) => {
   const photoItem = document.createElement('li');
 
   photoItem.innerHTML = `
-    <li>
       <h2>${photo.title}</h2>
       <img src=${photo.file} class="photo-card-image" />
       <p>${photo.caption}</p>
-    </li>
+      <img src="fotofinder-assets/delete.svg" class="delete-icon">
   `;
-
-
+  photoItem.className = "photo-card";
+  
+  photoItem.setAttribute('data-id', photo.id);
   photoList.prepend(photoItem);
 };
 
