@@ -19,8 +19,8 @@ const selectAndPreviewFile = () => {
 
   if(file) {
     reader.readAsDataURL(file);
-  }
-}
+  };
+};
 
 const handleAddPhoto = (e) => {
   e.preventDefault();
@@ -32,8 +32,24 @@ const handleAddPhoto = (e) => {
   } else {
     const photo = new Photo(title, caption, file);
     Photo.saveToStorage(photo);
+    prependPhoto(photo);
   }
-}
+};
+
+const prependPhoto = (photo) => {
+  const photoItem = document.createElement('li');
+
+  photoItem.innerHTML = `
+    <li>
+      <h2>${photo.title}</h2>
+      <img src=${reader.result} />
+      <p>${photo.caption}</p>
+    </li>
+  `;
+
+  reader.readAsDataURL(photo.file);
+  photoList.prepend(photoItem);
+};
 
 
 
