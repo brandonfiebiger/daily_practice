@@ -5,8 +5,12 @@ const photoList = document.querySelector('.photo-list');
 const titleInput = document.querySelector('.title-input');
 const captionInput = document.querySelector('.caption-input');
 const addPhotoButton = document.querySelector('.add-photo-button');
+const photosArray = JSON.parse(localStorage.getItem('photos')) || [];
 const reader = new FileReader();
 
+window.onload = () => {
+  photosArray.forEach(photo => prependPhoto(photo));
+}
 selectFile.addEventListener('change', () => selectAndPreviewFile());
 addPhotoForm.addEventListener('submit', (e) => handleAddPhoto(e));
 addPhotoButton.addEventListener('click', (e) => handleAddPhoto(e));
@@ -30,7 +34,8 @@ const handleAddPhoto = (e) => {
   if (!title | !caption || !file) {
     return;
   } else {
-    const photo = new Photo(title, caption, file);
+    const photo = new Photo(title, caption, reader.result);
+    reader.readAsDataURL(file);
     Photo.saveToStorage(photo);
     prependPhoto(photo);
   }
@@ -42,12 +47,12 @@ const prependPhoto = (photo) => {
   photoItem.innerHTML = `
     <li>
       <h2>${photo.title}</h2>
-      <img src=${reader.result} />
+      <img src=${photo.file} />
       <p>${photo.caption}</p>
     </li>
   `;
 
-  reader.readAsDataURL(photo.file);
+
   photoList.prepend(photoItem);
 };
 
