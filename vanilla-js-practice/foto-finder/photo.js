@@ -8,6 +8,8 @@ class Photo {
   }
 
   static saveToStorage(photo) {
-    //Save photo objects to localStorage
+    const photosArray = JSON.parse(localStorage.getItem('photos')) || [];
+    photosArray.unshift(photo);
+    localStorage.setItem('photos', JSON.stringify(photosArray));
   }
 }
