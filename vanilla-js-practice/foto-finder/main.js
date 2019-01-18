@@ -50,7 +50,7 @@ const prependPhoto = (photo) => {
   const photoItem = document.createElement('li');
 
   photoItem.innerHTML = `
-      <h2>${photo.title}</h2>
+      <h2 class="photo-title">${photo.title}</h2>
       <img src=${photo.file} class="photo-card-image" />
       <p>${photo.caption}</p>
       <img src="fotofinder-assets/delete.svg" class="delete-icon">
