@@ -5,21 +5,25 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header class="header">
-      <h1 class="primary-heading">Foto Finder</h1>
-      <input type="text" class="search-input">
-    </header>
-    <main class="main-content">
-      <form class="add-photo-form">
-        <input type="text" class="title-input" required>
-        <input type="text" class="caption-input" required>
-        <input type="file" class="select-file" required>
-        <img src="" class="preview" height="200">
-        <div class="fav-and-add">
-          <button class="favorites-button">View Favorites</button>
-          <input type="submit" class="add-photo-button">
-        </div>
-      </form>
+    <div class="top-half">
+      <header class="header">
+        <h1 class="primary-heading">Foto<img class="logo" src="fotofinder-assets/foto-finder-logo.svg"> Finder</h1>
+        <input type="text" class="search-input">
+      </header>
+      <main class="main-content">
+        <form class="add-photo-form">
+          <label>Title</label>
+          <input type="text" class="title-input form-input" required>
+          <label>Caption</label>
+          <input type="text" class="caption-input form-input" required>
+          <input type="file" class="select-file" required>
+          <img src="" class="preview" height="200">
+          <div class="fav-and-add">
+            <button class="favorites-button">View Favorites</button>
+            <input type="submit" class="add-photo-button">
+          </div>
+        </form>
+      </div>
       <ul class="photo-list"></ul>
     </main>
     <script src="photo.js" async defer></script>    
