@@ -1,3 +1,11 @@
+body {
+  margin: 0;
+}
+
+.main-content {
+  height: 30vh;
+}
+
 .photo-card-image {
   height: 200px;
 }
@@ -5,4 +13,41 @@
 .delete-icon {
   height: 2rem;
   cursor: pointer;
+}
+
+.logo {
+  height: 1.7rem;
+}
+
+.top-half {
+  border: 1px solid orangered;
+  height: 50vh;
+  background: #3E2A34;
+}
+
+.photo-list {
+  background: #C2B2B4;
+  margin: 0;
+  padding: 0;
+}
+
+.photo-title {
+  margin: 0;
+}
+
+.add-photo-form {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form-input {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+label {
+  margin-bottom: .5rem;
 }
