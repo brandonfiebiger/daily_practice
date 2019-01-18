@@ -22,13 +22,11 @@ const playSounds = () => {
   sineA.start()
   sineA.connect(audioCtx.destination);
   setTimeout(() => {
-    sineA.stop();
     sineB.start()
     sineB.connect(audioCtx.destination);
   }, 5000);
 
   setTimeout(() => {
-    sineB.stop();
     sineC.start()
     sineC.connect(audioCtx.destination);
   }, 10000);
