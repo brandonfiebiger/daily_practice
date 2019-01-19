@@ -5,13 +5,12 @@ let fft;
 function setup() {
 
 	createCanvas(400, 200);
-	stroke('hotpink');
-
+	
 	noise = new p5.Noise();
 	noise.amp(0);
-
+	
 	fft = new p5.FFT();
-
+	
 	toggleOnOff = createButton('play');
 	toggleOnOff.position(10, 10).style('font-family', 'courier');
 	toggleOnOff.mousePressed(() => {
@@ -23,7 +22,7 @@ function setup() {
 			toggleOnOff.html('stop');
 		}
 	})
-
+	
 	chooseNoise = createSelect();
 	chooseNoise.position(60, 10).style('font-family', 'courier');
 	chooseNoise.option('white');
@@ -31,8 +30,9 @@ function setup() {
 	chooseNoise.option('brown');
 	chooseNoise.changed(() => {
 		noise.setType(chooseNoise.value());
+		fill(chooseNoise.value());
 	});
-
+	
 	setVolume = createSlider(-60, 1, -60, 1);
 	setVolume.position(130, 10);
 	setVolume.input(() => {
@@ -45,16 +45,27 @@ function setup() {
 			noise.amp(map(setVolume.value(), -60, -56, 0, 0.0016), 0.1)
 		}
 	})
-
-
+	noStroke();
+	
 }
 
 function draw() {
-
+	
 	background('black');
 	let spectrum = fft.analyze();
 
+	beginShape();
+	vertex(0, height);
+
 	for (let i = 0; i < spectrum.length; i++) {
-		point(map(log(i), 0, log(spectrum.length), 0, width), map(spectrum[i], 0, 255, height, 0));
+		vertex(map(log(i), 0, log(spectrum.length), 0, width), map(spectrum[i], 0, 255, height, 0));
+	}
+	vertex(width, height);
+	endShape();
+}
+
+function touchStarted() {
+	if (getAudioContext().state !== 'running') {
+		getAudioContext().resume();
 	}
 }
