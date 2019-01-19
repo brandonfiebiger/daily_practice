@@ -3,7 +3,10 @@ let playButton, stopButton, chooseNoise, setVolume, toggleOnOff;
 let fft;
 
 function setup() {
+
 	createCanvas(400, 200);
+	stroke('hotpink');
+
 	noise = new p5.Noise();
 	noise.amp(0);
 
@@ -30,17 +33,24 @@ function setup() {
 		noise.setType(chooseNoise.value());
 	});
 
-	setVolume = createSlider(0, 1, 0, 0);
+	setVolume = createSlider(-60, 1, -60, 1);
 	setVolume.position(130, 10);
 	setVolume.input(() => {
-		noise.amp(setVolume.value(), 0.01);
+		if (setVolume.value() > -56) {
+			//apmlitude = 10^(decibels/20)
+			//pow(base, exponent);
+			//pow(10, setVolume.value()/20)
+			noise.amp(pow(10, setVolume.value()/20, 0.01));
+		} else {
+			noise.amp(map(setVolume.value(), -60, -56, 0, 0.0016), 0.1)
+		}
 	})
 
-	stroke('hotpink');
 
 }
 
 function draw() {
+
 	background('black');
 	let spectrum = fft.analyze();
 
