@@ -30,6 +30,7 @@ function setup() {
 	chooseNoise.option('brown');
 	chooseNoise.changed(() => {
 		noise.setType(chooseNoise.value());
+		fill(chooseNoise.value());
 	});
 	
 	setVolume = createSlider(-60, 1, -60, 1);
@@ -44,7 +45,6 @@ function setup() {
 			noise.amp(map(setVolume.value(), -60, -56, 0, 0.0016), 0.1)
 		}
 	})
-	fill('hotpink');
 	noStroke();
 	
 }
