@@ -1,9 +1,12 @@
 let noise;
 let playButton, stopButton, chooseNoise, setVolume, toggleOnOff;
+let fft;
 
 function setup() {
 	noise = new p5.Noise();
 	noise.amp(0);
+
+	fft = new p5.FFT();
 
 	toggleOnOff = createButton('play');
 	toggleOnOff.position(10, 10).style('font-family', 'courier');
