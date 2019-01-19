@@ -55,6 +55,6 @@ function draw() {
 	let spectrum = fft.analyze();
 
 	for (let i = 0; i < spectrum.length; i++) {
-		point(map(i, 0, spectrum.length, 0, width), map(spectrum[i], 0, 255, height, 0));
+		point(map(log(i), 0, log(spectrum.length), 0, width), map(spectrum[i], 0, 255, height, 0));
 	}
 }
