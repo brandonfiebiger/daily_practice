@@ -3,6 +3,7 @@ let playButton, stopButton, chooseNoise, setVolume, toggleOnOff;
 let fft;
 
 function setup() {
+	createCanvas(400, 200);
 	noise = new p5.Noise();
 	noise.amp(0);
 
@@ -34,4 +35,8 @@ function setup() {
 	setVolume.input(() => {
 		noise.amp(setVolume.value(), 0.01);
 	})
+}
+
+const draw = () => {
+	background(80);
 }
