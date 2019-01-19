@@ -63,3 +63,9 @@ function draw() {
 	vertex(width, height);
 	endShape();
 }
+
+function touchStarted() {
+	if (getAudioContext().state !== 'running') {
+		getAudioContext().resume();
+	}
+}
