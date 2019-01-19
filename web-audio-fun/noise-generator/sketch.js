@@ -1,9 +1,13 @@
 let noise;
 let playButton, stopButton, chooseNoise, setVolume, toggleOnOff;
+let fft;
 
 function setup() {
+	createCanvas(400, 200);
 	noise = new p5.Noise();
 	noise.amp(0);
+
+	fft = new p5.FFT();
 
 	toggleOnOff = createButton('play');
 	toggleOnOff.position(10, 10).style('font-family', 'courier');
@@ -31,4 +35,16 @@ function setup() {
 	setVolume.input(() => {
 		noise.amp(setVolume.value(), 0.01);
 	})
+
+	stroke('hotpink');
+
+}
+
+function draw() {
+	background('black');
+	let spectrum = fft.analyze();
+
+	for (let i = 0; i < spectrum.length; i++) {
+		point(map(i, 0, spectrum.length, 0, width), map(spectrum[i], 0, 255, height, 0));
+	}
 }
