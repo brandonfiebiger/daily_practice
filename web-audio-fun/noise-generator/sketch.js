@@ -35,8 +35,17 @@ function setup() {
 	setVolume.input(() => {
 		noise.amp(setVolume.value(), 0.01);
 	})
+
+	stroke('hotpink');
+
 }
 
-const draw = () => {
-	background(80);
+function draw() {
+	background('black');
+	let spectrum = fft.analyze();
+	let counter = 0;
+	
+	for (let i = 0; i < spectrum.length; i++) {
+		point(i, spectrum[i]);
+	}
 }
