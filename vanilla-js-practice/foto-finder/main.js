@@ -48,6 +48,7 @@ const handleAddPhoto = (e) => {
 
 const prependPhoto = (photo) => {
   const photoItem = document.createElement('li');
+  photoItem.className = 'photo-card';
 
   photoItem.innerHTML = `
       <h2 class="photo-title">${photo.title}</h2>
