@@ -1,5 +1,15 @@
 body {
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-input {
+  height: 2rem;
 }
 
 .main-content {
@@ -20,7 +30,6 @@ body {
 }
 
 .top-half {
-  border: 1px solid orangered;
   height: 50vh;
   background: #3E2A34;
 }
