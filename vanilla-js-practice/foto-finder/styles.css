@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
+  background: #C2B2B4;
 }
 
 .header {
@@ -17,7 +18,7 @@ body {
 }
 
 .photo-card-image {
-  height: 200px;
+  width: 100%;
 }
 
 .delete-icon {
@@ -38,6 +39,22 @@ body {
   background: #C2B2B4;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  height: 60vh;
+  list-style-type: none;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.photo-card {
+  border: 1px solid #938284;
+  width: 14rem;
+  height: 25rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  background: #ffffff;
 }
 
 .photo-title {
