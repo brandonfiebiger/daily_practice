@@ -11,14 +11,20 @@ const reader = new FileReader();
 window.onload = () => {
   photosArray.forEach(photo => prependPhoto(photo));
 }
+
 selectFile.addEventListener('change', () => selectAndPreviewFile());
+
 addPhotoForm.addEventListener('submit', (e) => handleAddPhoto(e));
+
 photoList.addEventListener('click', (e) => {
-  if (e.target.className === 'delete-icon') {
-    Photo.deleteFromStorage(e.target.parentElement.dataset.id);
-    e.target.parentElement.remove();
+  if (e.target.className === 'delete-icon icon') {
+    Photo.deleteFromStorage(e.target.parentElement.parentElement.dataset.id);
+    e.target.parentElement.parentElement.remove();
+  } else if (e.target.className === 'favorite-icon icon') {
+    Photo.toggleFavorite(e.target.parentElement.parentElement.dataset.id);
   }
-})
+});
+
 
 const selectAndPreviewFile = () => {
   const file = selectFile.files[0];
@@ -54,7 +60,10 @@ const prependPhoto = (photo) => {
       <h2 class="photo-title">${photo.title}</h2>
       <img src=${photo.file} class="photo-card-image" />
       <p>${photo.caption}</p>
-      <img src="fotofinder-assets/delete.svg" class="delete-icon">
+      <div>
+      <img src="fotofinder-assets/delete.svg" class="delete-icon icon">
+      <img src=${photo.favorite ? "fotofinder-assets/favorite-active.svg" : "fotofinder-assets/favorite.svg"} class="favorite-icon icon">
+      </div>
   `;
   photoItem.className = "photo-card";
   

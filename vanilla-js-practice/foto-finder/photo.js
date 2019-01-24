@@ -18,4 +18,16 @@ class Photo {
     photosArray = photosArray.filter(photo => photo.id != id);
     localStorage.setItem('photos', JSON.stringify(photosArray));
   }  
+
+  static toggleFavorite(id) {
+    let photosArray = JSON.parse(localStorage.getItem('photos'));
+
+    photosArray.forEach(photo => {
+      if (photo.id == id) {
+        photo.favorite = !photo.favorite;
+      }
+    });
+
+    localStorage.setItem('photos', JSON.stringify(photosArray));
+  }
 }
