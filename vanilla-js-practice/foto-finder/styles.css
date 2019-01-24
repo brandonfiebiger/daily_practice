@@ -51,14 +51,18 @@ body {
 .photo-card {
   border: 1px solid #938284;
   width: 14rem;
-  height: 25rem;
+  height: 21.8rem;
   margin-top: 2rem;
   margin-left: 2rem;
   background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .photo-title {
   margin: 0;
+  font-weight: 600;
 }
 
 .add-photo-form {
@@ -76,4 +80,8 @@ body {
 
 label {
   margin-bottom: .5rem;
+}
+
+.fav-and-delete {
+  background: #5B4447;
 }
