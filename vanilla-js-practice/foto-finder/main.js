@@ -54,8 +54,10 @@ const prependPhoto = (photo) => {
       <h2 class="photo-title">${photo.title}</h2>
       <img src=${photo.file} class="photo-card-image" />
       <p>${photo.caption}</p>
-      <img src="fotofinder-assets/favorite.svg" class="favorite-icon">
-      <img src="fotofinder-assets/delete.svg" class="delete-icon">
+      <div>
+        <img src="fotofinder-assets/favorite.svg" class="favorite-icon icon">
+        <img src="fotofinder-assets/delete.svg" class="delete-icon icon">
+      </div>
   `;
   photoItem.className = "photo-card";
   
