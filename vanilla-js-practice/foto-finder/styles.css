@@ -9,6 +9,10 @@ body {
   justify-content: space-between;
 }
 
+.primary-heading {
+  color: #fff;
+}
+
 .search-input {
   height: 2rem;
 }
@@ -28,6 +32,7 @@ body {
 
 .logo {
   height: 1.7rem;
+  margin-left: .7rem;
 }
 
 .top-half {
