@@ -11,14 +11,20 @@ const reader = new FileReader();
 window.onload = () => {
   photosArray.forEach(photo => prependPhoto(photo));
 }
+
 selectFile.addEventListener('change', () => selectAndPreviewFile());
+
 addPhotoForm.addEventListener('submit', (e) => handleAddPhoto(e));
+
 photoList.addEventListener('click', (e) => {
-  if (e.target.className === 'delete-icon') {
-    Photo.deleteFromStorage(e.target.parentElement.dataset.id);
-    e.target.parentElement.remove();
+  if (e.target.className === 'delete-icon icon') {
+    Photo.deleteFromStorage(e.target.parentElement.parentElement.dataset.id);
+    e.target.parentElement.parentElement.remove();
+  } else if (e.target.className === 'favorite-icon icon') {
+    console.log('hooked up');
   }
-})
+});
+
 
 const selectAndPreviewFile = () => {
   const file = selectFile.files[0];
