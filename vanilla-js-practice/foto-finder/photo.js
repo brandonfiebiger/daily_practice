@@ -20,7 +20,6 @@ class Photo {
   }  
 
   static toggleFavorite(id) {
-    console.log(id);
     let photosArray = JSON.parse(localStorage.getItem('photos'));
 
     photosArray.forEach(photo => {
