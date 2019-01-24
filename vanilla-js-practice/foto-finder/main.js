@@ -21,7 +21,7 @@ photoList.addEventListener('click', (e) => {
     Photo.deleteFromStorage(e.target.parentElement.parentElement.dataset.id);
     e.target.parentElement.parentElement.remove();
   } else if (e.target.className === 'favorite-icon icon') {
-    console.log('hooked up');
+    Photo.toggleFavorite(e.target.parentElement.parentElement.dataset.id);
   }
 });
 
