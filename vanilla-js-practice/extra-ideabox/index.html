@@ -5,20 +5,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>IdeaBox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
 </head>
 <body>
   <header>
     <h1>IdeaBox</h1>
-    <form>
-      <input type="text" class="title-input">
-      <input type="text" class="body-input">
+    <form class="idea-form">
+      <input type="text" class="title-input" required>
+      <input type="text" class="body-input" required>
       <input type="submit" class="submit-button">
     </form>
   </header>
   <main>
     <ul class="idea-list"></ul>
   </main>
+  <script src="idea.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
