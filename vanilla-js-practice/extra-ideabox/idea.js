@@ -6,7 +6,9 @@ class Idea {
     this.id = Date.now();
   }
 
-  static addIdea() {
-    console.log('hooked up');
+  static addIdea(idea) {
+    let ideasArray = JSON.parse(localStorage.getItem('ideas')) || [];
+    ideasArray = [...ideasArray, idea];
+    localStorage.setItem('ideas', JSON.stringify(ideasArray));
   }
 }
