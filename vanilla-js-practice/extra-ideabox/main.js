@@ -18,6 +18,7 @@ const handleAddIdea = (e) => {
   const idea = new Idea(title, body);
   addIdeaToDom(idea)
   Idea.addIdea(idea);
+  ideaForm.reset();
 }
 
 const addIdeaToDom = (idea) => {
@@ -31,5 +32,15 @@ const addIdeaToDom = (idea) => {
 
   ideaList.prepend(ideaCard);
 }
+
+const deleteIdea = (e) => {
+  e.target.parentElement.remove();
+}
+
+ideaList.addEventListener('click', (e) => {
+  if (e.target.className === 'delete-button') {
+    deleteIdea(e);
+  }
+});
 
 ideaForm.addEventListener('submit', handleAddIdea);
