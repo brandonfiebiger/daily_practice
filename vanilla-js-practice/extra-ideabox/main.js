@@ -15,7 +15,11 @@ const addIdea = (e) => {
   ideaCard.innerHTML = `
     <h2>${title}</h2>
     <p>${body}</p>
-  `
+  `;
+
+  ideaList.prepend(ideaCard);
+  ideaForm.reset();
+  Idea.addIdea(idea);
 }
 
 ideaForm.addEventListener('submit', addIdea);
