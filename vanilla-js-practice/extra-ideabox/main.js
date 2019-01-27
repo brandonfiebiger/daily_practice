@@ -29,6 +29,9 @@ const addIdeaToDom = (idea) => {
     <h2>${idea.title}</h2>
     <p>${idea.body}</p>
     <button class="delete-button">X</button>
+    <p>${idea.quality}</p>
+    <button class="up-arrow">&uarr;</button>
+    <button class="down-arrow">&darr;</button>
   `;
 
   ideaList.prepend(ideaCard);
