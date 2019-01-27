@@ -24,6 +24,7 @@ const handleAddIdea = (e) => {
 const addIdeaToDom = (idea) => {
   const ideaCard = document.createElement('li');
   ideaCard.className = 'idea-card';
+  ideaCard.dataset.id = idea.id;
   ideaCard.innerHTML = `
     <h2>${idea.title}</h2>
     <p>${idea.body}</p>
@@ -33,13 +34,14 @@ const addIdeaToDom = (idea) => {
   ideaList.prepend(ideaCard);
 }
 
-const deleteIdea = (e) => {
+const handleDeleteIdea = (e) => {
+  Idea.deleteIdea(e.target.parentElement.dataset.id);
   e.target.parentElement.remove();
 }
 
 ideaList.addEventListener('click', (e) => {
   if (e.target.className === 'delete-button') {
-    deleteIdea(e);
+    handleDeleteIdea(e);
   }
 });
 
