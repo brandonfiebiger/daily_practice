@@ -51,6 +51,8 @@ const handleUpdateQualityUp = (e) => {
       e.target.previousSibling.previousSibling.innerText = 'Great!';
       break;
   }
+  Idea.updateQuality(e.target.parentElement.dataset.id, e.target.previousSibling.previousSibling.innerText)
+
 }
 
 const handleUpdateQualityDown = (e) => {
@@ -62,6 +64,7 @@ const handleUpdateQualityDown = (e) => {
       e.target.previousSibling.previousSibling.previousSibling.previousSibling.innerText = 'swill';
       break;
   }
+  Idea.updateQuality(e.target.parentElement.dataset.id, e.target.previousSibling.previousSibling.previousSibling.previousSibling.innerText)
 }
 
 ideaList.addEventListener('click', (e) => {
