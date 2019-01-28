@@ -30,8 +30,14 @@ export default {
   },
   methods: {
     addSkill() {
-      this.skills.push({skill: this.skill});
-      this.skill = '';
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          this.skills.push({skill: this.skill});
+          this.skill = '';
+        } else {
+          console.log('Not valid');
+        }
+      })
     }
   }
 }
