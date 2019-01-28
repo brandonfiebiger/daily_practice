@@ -1,14 +1,23 @@
 <template>
   <div class="hello">
-    Skills
+    <div class="holder">
+      <ul>
+        <li v-for="(data, index) in skills" :key='index'>{{ index }}. {{ data.skill }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Skills',
-  props: {
-    
+  data() {
+    return {
+      skills: [
+        {"skill": "Vue.js"},
+        {"skill": "Front end developer"}
+      ]
+    }
   }
 }
 </script>
