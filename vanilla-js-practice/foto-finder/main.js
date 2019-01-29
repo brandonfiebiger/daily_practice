@@ -73,7 +73,10 @@ const prependPhoto = (photo) => {
 };
 
 const searchPhotos = (userInput) => {
-  console.log(userInput);
+  let photoCards = JSON.parse(localStorage.getItem('photos'));
+  photoCards = photoCards.filter(photo => photo.caption.includes(userInput) || photo.title.includes(userInput));
+  photoList.innerHTML = "";
+  photoCards.forEach(photo => prependPhoto(photo));
 }
 
 searchInput.addEventListener('keyup', () => {
