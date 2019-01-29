@@ -5,6 +5,7 @@ const photoList = document.querySelector('.photo-list');
 const titleInput = document.querySelector('.title-input');
 const captionInput = document.querySelector('.caption-input');
 const addPhotoButton = document.querySelector('.add-photo-button');
+const searchInput = document.querySelector('.search-input');
 const photosArray = JSON.parse(localStorage.getItem('photos')) || [];
 const reader = new FileReader();
 
@@ -70,6 +71,17 @@ const prependPhoto = (photo) => {
   photoItem.setAttribute('data-id', photo.id);
   photoList.prepend(photoItem);
 };
+
+const searchPhotos = (userInput) => {
+  let photoCards = JSON.parse(localStorage.getItem('photos'));
+  photoCards = photoCards.filter(photo => photo.caption.includes(userInput) || photo.title.includes(userInput));
+  photoList.innerHTML = "";
+  photoCards.forEach(photo => prependPhoto(photo));
+}
+
+searchInput.addEventListener('keyup', () => {
+  searchPhotos(searchInput.value);
+})
 
 
 
