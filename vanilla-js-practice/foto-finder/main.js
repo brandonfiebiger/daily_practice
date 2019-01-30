@@ -43,7 +43,7 @@ const handleAddPhoto = (e) => {
   const title = titleInput.value;
   const caption = captionInput.value;
   const file = selectFile.files[0];
-  if (!title | !caption || !file) {
+  if (!title || !caption || !file) {
     return;
   } else {
     const photo = new Photo(title, caption, reader.result);
