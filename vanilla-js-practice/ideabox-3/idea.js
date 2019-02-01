@@ -5,4 +5,8 @@ class Idea {
     this.quality = 'swill';
     this.id = Date.now();
   }
+
+  static addIdea(idea) {
+    console.log(idea);
+  }
 }
