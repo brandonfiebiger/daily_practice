@@ -15,6 +15,7 @@ const handleAddIdea = (e) => {
 
 const prependIdea = (idea) => {
   const li = document.createElement('li');
+  li.dataset.id = idea.id;
   li.innerHTML = `
     <h2>${idea.title}</h2>
     <p>${idea.body}</p>
@@ -26,5 +27,18 @@ const prependIdea = (idea) => {
   ideaList.prepend(li);
 }
 
+
+
 ideaForm.addEventListener('submit', handleAddIdea);
+
+ideaList.addEventListener('click', (e) => {
+  if (e.target.className === 'delete-button') {
+    Idea.deleteIdea(e.target.parentElement.dataset.id);
+    e.target.parentElement.remove();
+  }
+})
+
+window.addEventListener('load', () => {
+  JSON.parse(localStorage.getItem('ideas')).forEach(idea => prependIdea(idea));
+})
 
