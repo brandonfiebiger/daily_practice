@@ -28,3 +28,7 @@ const prependIdea = (idea) => {
 
 ideaForm.addEventListener('submit', handleAddIdea);
 
+window.addEventListener('load', () => {
+  JSON.parse(localStorage.getItem('ideas')).forEach(idea => prependIdea(idea));
+})
+
