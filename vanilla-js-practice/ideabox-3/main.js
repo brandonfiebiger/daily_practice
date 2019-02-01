@@ -9,7 +9,8 @@ const handleAddIdea = (e) => {
   const body = bodyInput.value;
   const idea = new Idea(title, body);
   prependIdea(idea);
-  // Idea.addIdea(idea);
+  Idea.addIdea(idea);
+  ideaForm.reset();
 }
 
 const prependIdea = (idea) => {
