@@ -27,6 +27,29 @@ const prependIdea = (idea) => {
   ideaList.prepend(li);
 }
 
+const handleUpdateQualityUp = (e) => {
+  const upArrow = {
+    'swill': 'plausible',
+    'plausible': 'great',
+    'great': 'great'
+  };
+  let currentQuality = e.target.nextSibling.nextSibling.nextSibling.nextSibling.innerText
+  Idea.updateQuality(e.target.parentElement.dataset.id, upArrow[currentQuality]);
+  e.target.nextSibling.nextSibling.nextSibling.nextSibling.innerText = upArrow[currentQuality];
+
+}
+
+const handleUpdateQualityDown = (e) => {
+  const downArrow = {
+    'great': 'plausible',
+    'plausible': 'swill',
+    'swill': 'swill'
+  };
+  let currentQuality = e.target.nextSibling.nextSibling.innerText;
+  Idea.updateQuality(e.target.parentElement.dataset.id, downArrow[currentQuality]);
+  e.target.nextSibling.nextSibling.innerText = downArrow[currentQuality];
+}
+
 
 
 ideaForm.addEventListener('submit', handleAddIdea);
@@ -35,10 +58,14 @@ ideaList.addEventListener('click', (e) => {
   if (e.target.className === 'delete-button') {
     Idea.deleteIdea(e.target.parentElement.dataset.id);
     e.target.parentElement.remove();
+  } else if (e.target.className === 'up-arrow') {
+    handleUpdateQualityUp(e);
+  } else if (e.target.className === 'down-arrow') {
+    handleUpdateQualityDown(e);
   }
-})
+});
 
 window.addEventListener('load', () => {
   JSON.parse(localStorage.getItem('ideas')).forEach(idea => prependIdea(idea));
-})
+});
 
