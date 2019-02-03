@@ -16,8 +16,50 @@ header {
 .idea-form {
   height: 45vh;
   background: #EAEAEA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin-bottom: 1rem;
+  width: 25rem;
+}
+
+.title-input {
+  height: 1.5rem;
+}
+
+.body-input {
+  height: 5rem;
+}
+
+.title-input-container {
+  margin-top: 3rem;
+}
+
+label {
+  display: block;
+}
+
+button {
+  width: 25.5rem;
+  color: #ffffff;
+  background: #6e646b;
+  height: 2rem;
 }
 
 p {
   margin: 0;
+}
+
+main {
+  background: #F9F9FA;
+  height: 45vh;
+}
+
+.idea-list {
+  margin: 0;
+  height: 100vh;
+  padding: 0;
 }
