@@ -32,6 +32,7 @@ window.addEventListener('load', () => JSON.parse(localStorage.getItem('ideas')).
 
 document.querySelector('.idea-list').addEventListener('click', (e) => {
   if (e.target.className === 'delete-button') {
+    Idea.deleteFromStorage(e.target.parentElement.dataset.id);
     e.target.parentElement.remove();
   }
 })
