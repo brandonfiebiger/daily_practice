@@ -42,7 +42,7 @@ label {
   display: block;
 }
 
-button {
+.submit-button {
   width: 25.5rem;
   color: #ffffff;
   background: #6e646b;
