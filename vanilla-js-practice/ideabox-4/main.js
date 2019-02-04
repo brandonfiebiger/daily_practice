@@ -2,6 +2,7 @@
 
 const addIdeaToDom = (idea) => {
   const li = document.createElement('li');
+  li.dataset.id = idea.id;
 
   li.innerHTML = `
     <h2>${idea.title}</h2>
@@ -27,4 +28,10 @@ const handleAddIdea = (e) => {
 
 document.querySelector('.idea-form').addEventListener('submit', handleAddIdea);
 
-window.addEventListener('load', () => JSON.parse(localStorage.getItem('ideas')).forEach(idea => addIdeaToDom(idea)))
+window.addEventListener('load', () => JSON.parse(localStorage.getItem('ideas')).forEach(idea => addIdeaToDom(idea)));
+
+document.querySelector('.idea-list').addEventListener('click', (e) => {
+  if (e.target.className === 'delete-button') {
+    e.target.parentElement.remove();
+  }
+})
