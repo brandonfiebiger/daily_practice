@@ -26,3 +26,5 @@ const handleAddIdea = (e) => {
 }
 
 document.querySelector('.idea-form').addEventListener('submit', handleAddIdea);
+
+window.addEventListener('load', () => JSON.parse(localStorage.getItem('ideas')).forEach(idea => addIdeaToDom(idea)))
