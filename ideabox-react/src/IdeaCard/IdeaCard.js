@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const IdeaCard = () => {
+export const IdeaCard = (props) => {
 
 
   return (
