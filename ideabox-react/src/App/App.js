@@ -14,8 +14,17 @@ class App extends Component {
   }
 
   addIdea = (idea) => {
+    idea.id = Date.now();
     this.setState({
       ideas: [idea, ...this.state.ideas]
+    })
+  }
+
+  deleteIdea = (id) => {
+    const filteredIdeas = this.state.ideas.filter(idea => idea.id !== id);
+
+    this.setState({
+      ideas: filteredIdeas
     })
   }
 
@@ -25,7 +34,7 @@ class App extends Component {
      <div>
        <h1>IdeaBox</h1>
        <IdeaForm addIdea={this.addIdea}/>
-       <IdeaList ideas={this.state.ideas} />
+       <IdeaList ideas={this.state.ideas} deleteIdea={this.deleteIdea} />
      </div>
     );
   }
