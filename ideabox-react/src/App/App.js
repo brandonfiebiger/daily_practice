@@ -14,7 +14,9 @@ class App extends Component {
   }
 
   addIdea = (idea) => {
-    console.log(idea);
+    this.setState({
+      ideas: [idea, ...this.state.ideas]
+    })
   }
 
 
