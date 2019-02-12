@@ -25,7 +25,7 @@ class App extends Component {
      <div>
        <h1>IdeaBox</h1>
        <IdeaForm addIdea={this.addIdea}/>
-       <IdeaList />
+       <IdeaList ideas={this.state.ideas} />
      </div>
     );
   }
