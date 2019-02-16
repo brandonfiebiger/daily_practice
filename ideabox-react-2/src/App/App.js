@@ -3,13 +3,29 @@ import { IdeaForm } from '../IdeaForm/IdeaForm';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      ideas: []
+    };
+  };
+
+
+  addIdea = (idea) => {
+    this.setState({
+      ideas: [idea, ...this.state.ideas]
+    });
+  };
+
+
   render() {
     return (
       <React.Fragment>
-        <IdeaForm />
+        <IdeaForm addIdea={ this.addIdea }/>
       </React.Fragment>
     );
-  }
-}
+  };
+};
 
 export default App;
