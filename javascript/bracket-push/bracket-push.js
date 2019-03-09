@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 export const bracketPush = (string) => {
   const openings = ['(', '{', '['];
   const closings = [')', '}', ']'];
